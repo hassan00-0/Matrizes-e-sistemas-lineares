@@ -27,9 +27,19 @@
 
     <div class="hero">
       <div class="hero-badge">
-        <span class="dot"></span>Álgebra Linear Interativa
+        <span
+          class="dot"
+          style="
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: inline-block;
+          "
+        ></span
+        >Álgebra Linear Interativa
       </div>
-      <h1>Matrizes & <em>Sistemas Lineares</em></h1>
+      <h1>Matrizes &amp; <em>Sistemas Lineares</em></h1>
       <p>
         Explore conceitos de álgebra linear com calculadoras interativas,
         visualizações gráficas e passo a passo detalhado das soluções.
@@ -39,6 +49,567 @@
         <a href="#sistemas" class="btn-outline">Resolver Sistemas</a>
       </div>
     </div>
+
+    <main>
+      <!-- ===== TEORIA ===== -->
+      <section id="teoria">
+        <div class="section-header">
+          <div class="section-num">01</div>
+          <div>
+            <h2>Fundamentos Teóricos</h2>
+            <p>Visão geral, história e fórmulas essenciais</p>
+          </div>
+        </div>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="theory-chip">
+              <span class="chip-dot"></span>Visão Geral
+            </div>
+            <h3>O que são Matrizes?</h3>
+            <p>
+              Uma <strong>matriz</strong> é uma tabela retangular de números (ou
+              expressões) organizados em linhas e colunas. Uma matriz com
+              <em>m</em> linhas e <em>n</em> colunas é chamada de matriz de
+              ordem <em>m × n</em>.
+            </p>
+            <div class="formula-box">
+              <div id="f1">
+                $$A = \begin{pmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21}
+                &amp; a_{22} &amp; a_{23} \\ a_{31} &amp; a_{32} &amp; a_{33}
+                \end{pmatrix}$$
+              </div>
+            </div>
+            <p>
+              O elemento \(a_{ij}\) indica o valor na linha <em>i</em> e coluna
+              <em>j</em>. Matrizes são estruturas fundamentais em álgebra
+              linear, com aplicações em computação gráfica, machine learning,
+              física e engenharia.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card">
+              <div class="theory-chip">
+                <span class="chip-dot"></span>História
+              </div>
+              <h3>Origem e Pioneiros</h3>
+
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-dot">1814</div>
+                  <div class="timeline-content">
+                    <strong>James Joseph Sylvester</strong>
+                    <span>
+                      Matemático inglês que contribuiu para a teoria das
+                      matrizes, invariantes e combinatória. Introduziu o termo
+                      <em>"matrix"</em>
+                      e ajudou a estruturar a álgebra moderna.
+                    </span>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-dot active">1858</div>
+                  <div class="timeline-content">
+                    <strong>Arthur Cayley</strong>
+                    <span>
+                      Formalizou a teoria das matrizes como conhecemos hoje,
+                      definindo operações como multiplicação e matriz inversa,
+                      estabelecendo as bases da álgebra matricial.
+                    </span>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-dot">Séc. XIX</div>
+                  <div class="timeline-content">
+                    <strong>Colaboração Científica</strong>
+                    <span>
+                      Sylvester e Cayley trabalharam juntos no desenvolvimento
+                      da teoria dos invariantes e consolidaram as matrizes como
+                      ferramenta essencial para resolver sistemas lineares.
+                    </span>
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-dot">Hoje</div>
+                  <div class="timeline-content">
+                    <strong>Aplicações Modernas</strong>
+                    <span>
+                      Matrizes são fundamentais em computação, inteligência
+                      artificial, gráficos 3D, engenharia e análise de dados.
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- BUTTON -->
+              <div style="margin-top: 1.5rem">
+                <a href="historia.html" class="btn-primary"> Saiba mais </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 1.25rem">
+          <div class="theory-chip">
+            <span class="chip-dot"></span>Operações Fundamentais
+          </div>
+          <div class="card-grid" style="gap: 1.5rem">
+            <div>
+              <h3>Determinante 2×2</h3>
+              <p>
+                O determinante indica se uma matriz é invertível e representa a
+                "escala" da transformação linear.
+              </p>
+              <div class="formula-box">
+                <div id="f2">
+                  $$\det(A) = \begin{vmatrix} a &amp; b \\ c &amp; d
+                  \end{vmatrix} = ad - bc$$
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3>Sistemas Lineares</h3>
+              <p>
+                Um sistema de equações lineares pode ser escrito na forma
+                matricial \(A\mathbf{x} = \mathbf{b}\). Para resolver,
+                utilizamos o
+                <strong>método do escalonamento (Eliminação de Gauss)</strong>,
+                que consiste em transformar a matriz aumentada em uma forma
+                triangular, facilitando a obtenção das soluções por
+                substituição.
+              </p>
+
+              <div class="formula-box">
+                <div id="f3">
+                  $$\left[\begin{array}{ccc|c} a_1 & b_1 & c_1 & d_1 \\ a_2 &
+                  b_2 & c_2 & d_2 \\ a_3 & b_3 & c_3 & d_3 \end{array}\right]
+                  \;\longrightarrow\; \left[\begin{array}{ccc|c} 1 & * & * & *
+                  \\ 0 & 1 & * & * \\ 0 & 0 & 1 & * \end{array}\right]$$
+                </div>
+              </div>
+
+              <p>
+                Após o escalonamento, resolvemos o sistema de baixo para cima
+                (substituição retroativa) até encontrar os valores das
+                variáveis.
+              </p>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="highlight-box">
+            <strong>Por que isso importa?</strong> Sistemas lineares modelam
+            desde circuitos elétricos até otimização de rotas, passando por
+            análise estrutural em engenharia civil e treinamento de redes
+            neurais em IA.
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CALCULADORA ===== -->
+      <section id="calculadora">
+        <div class="section-header">
+          <div class="section-num">02</div>
+          <div>
+            <h2>Calculadora de Matrizes</h2>
+            <p>Operações com matrizes de até 4×4</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="calc-controls">
+            <div class="form-group">
+              <label>Dimensão</label>
+              <select id="matSize" onchange="resizeMatrices()">
+                <option value="2">2 × 2</option>
+                <option value="3" selected>3 × 3</option>
+                <option value="4">4 × 4</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Operação</label>
+              <div class="op-buttons" id="opButtons">
+                <button class="op-btn active" onclick="setOp('soma', this)">
+                  Soma ( A + B )
+                </button>
+                <button class="op-btn" onclick="setOp('sub', this)">
+                  Subtração ( A − B )
+                </button>
+                <button class="op-btn" onclick="setOp('mult', this)">
+                  Multiplicação ( A × B )
+                </button>
+                <button class="op-btn" onclick="setOp('det', this)">
+                  Determinante ( det A )
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="matrix-wrapper" id="matricesWrapper">
+            <!-- Matriz A -->
+            <div>
+              <div class="matrix-label">Matriz <em>A</em></div>
+              <div class="matrix-bracket">
+                <span class="bracket-sym">[</span>
+                <div class="matrix-grid" id="matA"></div>
+                <span class="bracket-sym">]</span>
+              </div>
+            </div>
+            <!-- Operador -->
+            <div
+              id="opSymbol"
+              style="
+                font-family: &quot;DM Serif Display&quot;, serif;
+                font-size: 2rem;
+                color: var(--accent);
+                align-self: center;
+                line-height: 1;
+                padding-top: 1.5rem;
+              "
+            >
+              +
+            </div>
+            <!-- Matriz B -->
+            <div id="matBWrapper">
+              <div class="matrix-label">Matriz <em>B</em></div>
+              <div class="matrix-bracket">
+                <span class="bracket-sym">[</span>
+                <div class="matrix-grid" id="matB"></div>
+                <span class="bracket-sym">]</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem">
+            <button class="calc-action-btn" onclick="calcular()">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12,6 12,12 16,12" />
+              </svg>
+              Calcular
+            </button>
+          </div>
+
+          <div class="result-area" id="calcResult">
+            <div class="divider"></div>
+            <div class="result-label">Resultado</div>
+            <div id="resultContent"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== SISTEMAS ===== -->
+      <section id="sistemas">
+        <div class="section-header">
+          <div class="section-num">03</div>
+          <div>
+            <h2>Solucionador de Sistemas Lineares</h2>
+            <p>Resolução passo a passo via Regra de Cramer</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="sistema-tabs">
+            <button class="tab-btn active" onclick="setSisTab(2, this)">
+              2 variáveis
+            </button>
+            <button class="tab-btn" onclick="setSisTab(3, this)">
+              3 variáveis
+            </button>
+          </div>
+
+          <!-- EQUAÇÕES 2x2 -->
+          <div id="sis2">
+            <p
+              style="
+                font-size: 0.88rem;
+                color: var(--text-muted);
+                margin-bottom: 1rem;
+              "
+            >
+              Insira os coeficientes do sistema:
+            </p>
+            <div class="formula-box" style="margin-bottom: 1.25rem">
+              <div id="f4">
+                $$\begin{cases} a_1 x + b_1 y = c_1 \\ a_2 x + b_2 y = c_2
+                \end{cases}$$
+              </div>
+            </div>
+            <div class="sistema-inputs">
+              <div class="eq-row">
+                <span class="eq-num">Eq. 1</span>
+                <div class="eq-main">
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s2_a1"
+                    value="2"
+                    placeholder="a₁"
+                  />
+                  <span class="var-label">x</span>
+                  <span class="eq-sym">+</span>
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s2_b1"
+                    value="1"
+                    placeholder="b₁"
+                  />
+                  <span class="var-label">y</span>
+                  <span class="eq-sym">=</span>
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s2_c1"
+                    value="5"
+                    placeholder="c₁"
+                  />
+                </div>
+              </div>
+              <div class="eq-row">
+                <span class="eq-num">Eq. 2</span>
+                <div class="eq-main">
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s2_a2"
+                    value="1"
+                    placeholder="a₂"
+                  />
+                  <span class="var-label">x</span>
+                  <span class="eq-sym">+</span>
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s2_b2"
+                    value="3"
+                    placeholder="b₂"
+                  />
+                  <span class="var-label">y</span>
+                  <span class="eq-sym">=</span>
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s2_c2"
+                    value="10"
+                    placeholder="c₂"
+                  />
+                </div>
+              </div>
+            </div>
+            <button class="calc-action-btn" onclick="resolverSistema2()">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+              Resolver Sistema
+            </button>
+            <div id="result2"></div>
+            <!-- GRÁFICO -->
+            <div id="graficoWrapper" style="display: none; margin-top: 1.5rem">
+              <div class="divider"></div>
+              <div class="result-label">
+                Representação Gráfica — Interseção das Retas
+              </div>
+              <div class="chart-container">
+                <canvas id="grafico2x2"></canvas>
+              </div>
+              <div class="chart-legend" id="chartLegend"></div>
+            </div>
+          </div>
+
+          <!-- EQUAÇÕES 3x3 -->
+          <div id="sis3" style="display: none">
+            <p
+              style="
+                font-size: 0.88rem;
+                color: var(--text-muted);
+                margin-bottom: 1rem;
+              "
+            >
+              Insira os coeficientes do sistema:
+            </p>
+            <div class="formula-box" style="margin-bottom: 1.25rem">
+              <div id="f5">
+                $$\begin{cases} a_1 x + b_1 y + c_1 z = d_1 \\ a_2 x + b_2 y +
+                c_2 z = d_2 \\ a_3 x + b_3 y + c_3 z = d_3 \end{cases}$$
+              </div>
+            </div>
+            <div class="sistema-inputs">
+              <div class="eq-row">
+                <span class="eq-num">Eq. 1</span>
+                <div class="eq-main">
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s3_a1"
+                    value="2"
+                    placeholder="a₁"
+                  />
+                  <span class="var-label">x</span>
+                  <span class="eq-sym">+</span>
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s3_b1"
+                    value="1"
+                    placeholder="b₁"
+                  />
+                  <span class="var-label">y</span>
+                  <span class="eq-sym">+</span>
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s3_c1"
+                    value="-1"
+                    placeholder="c₁"
+                  />
+                  <span class="var-label">z</span>
+                  <span class="eq-sym">=</span>
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s3_d1"
+                    value="8"
+                    placeholder="d₁"
+                  />
+                </div>
+              </div>
+              <div class="eq-row">
+                <span class="eq-num">Eq. 2</span>
+                <div class="eq-main">
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s3_a2"
+                    value="-3"
+                    placeholder="a₂"
+                  />
+                  <span class="var-label">x</span>
+                  <span class="eq-sym">+</span>
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s3_b2"
+                    value="-1"
+                    placeholder="b₂"
+                  />
+                  <span class="var-label">y</span>
+                  <span class="eq-sym">+</span>
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s3_c2"
+                    value="2"
+                    placeholder="c₂"
+                  />
+                  <span class="var-label">z</span>
+                  <span class="eq-sym">=</span>
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s3_d2"
+                    value="-11"
+                    placeholder="d₂"
+                  />
+                </div>
+              </div>
+              <div class="eq-row">
+                <span class="eq-num">Eq. 3</span>
+                <div class="eq-main">
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s3_a3"
+                    value="-2"
+                    placeholder="a₃"
+                  />
+                  <span class="var-label">x</span>
+                  <span class="eq-sym">+</span>
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s3_b3"
+                    value="1"
+                    placeholder="b₃"
+                  />
+                  <span class="var-label">y</span>
+                  <span class="eq-sym">+</span>
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s3_c3"
+                    value="2"
+                    placeholder="c₃"
+                  />
+                  <span class="var-label">z</span>
+                  <span class="eq-sym">=</span>
+                  <input
+                    type="number"
+                    class="coef-input"
+                    id="s3_d3"
+                    value="-3"
+                    placeholder="d₃"
+                  />
+                </div>
+              </div>
+            </div>
+            <button class="calc-action-btn" onclick="resolverSistema3()">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+              Resolver Sistema
+            </button>
+            <div id="result3"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Matrizes — Construído com
+        <strong>HTML5, CSS e JavaScript puro</strong> · Chart.js · MathJax
+      </p>
+      <p style="margin-top: 6px; font-size: 0.76rem; opacity: 0.6">
+        Baseado na obra de <strong>Cayley</strong> (1858) e
+        <strong>Sylvester</strong> (1850)
+      </p>
+      <p style="margin-top: 12px; font-size: 0.76rem; opacity: 0.7">
+        Feito por Kenzo Kalani Matsumoto, Hassan Nader Yassine &amp; Davi
+        Zagretti Cevdar
+      </p>
+    </footer>
+
     <script src="index.js"></script>
   </body>
 </html>
